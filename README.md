@@ -1,50 +1,54 @@
-# React + TypeScript + Vite
+# UserFlow
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Esta es una aplicación web que utiliza varias bibliotecas y herramientas poderosas para manejar diferentes aspectos del desarrollo. El proyecto usa **Firebase** como base de datos, **ShadCN** como biblioteca de componentes, **Formik** y **Yup** para el manejo y validación de formularios, **Zustand** para la gestión del estado global, y **Axios** y **React Query** para interactuar con la API de Firebase.
 
-Currently, two official plugins are available:
+## Tecnologías utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Firebase
 
-## Expanding the ESLint configuration
+- **Firebase** se usa como la base de datos backend para almacenar y gestionar los datos de los usuarios. Se utilizan Firebase Authentication y Firestore para la autenticación y el almacenamiento de datos.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### ShadCN
 
-- Configure the top-level `parserOptions` property like this:
+- **ShadCN** se usa como una biblioteca de componentes UI para construir componentes personalizados y responsivos de manera eficiente.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Formik & Yup
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- **Formik** se usa para manejar el estado y la presentación de formularios.
+- **Yup** se usa junto con Formik para la validación de formularios, asegurando que los datos de entrada sean válidos antes de enviarlos.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### Zustand
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- **Zustand** se utiliza para la gestión del estado global, proporcionando una forma sencilla de almacenar y gestionar el estado de la aplicación sin la complejidad de otras bibliotecas de gestión de estado.
+
+### Axios & React Query
+
+- **Axios** se usa para realizar solicitudes HTTP a la API de Firebase para leer y escribir datos.
+- **React Query** se usa para la obtención de datos, almacenamiento en caché y sincronización con Firebase, proporcionando hooks para una gestión eficiente de los datos.
+
+## Funcionalidades
+
+- **Operaciones CRUD de usuarios**: Crear, leer, actualizar y eliminar usuarios directamente desde la base de datos de Firebase.
+- **Validación de formularios**: Los formularios se validan utilizando Yup con Formik, asegurando que los datos de entrada sean correctos antes de enviarlos.
+- **Gestión del estado global**: Zustand se usa para gestionar el estado global, facilitando el intercambio de estado entre componentes.
+- **Obtención eficiente de datos**: Axios y React Query proporcionan una forma eficiente de interactuar con Firebase, asegurando que la aplicación se mantenga receptiva y los datos estén siempre actualizados.
+
+## Instalación
+
+Para ejecutar este proyecto localmente, sigue estos pasos:
+
+1. Instala las dependencias:
+
+   ```bash
+   npm install
+   ```
+
+2. Configura Firebase:
+
+   - Configurar el .env.local
+
+3. Ejecuta el servidor de desarrollo:
+
+   ```bash
+   npm start
+   ```
